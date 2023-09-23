@@ -1,56 +1,46 @@
-.Profile-avatarContainer {
-  padding: 0 35%;
+.profile-avatar {
+  padding: 20px 35% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.Profile-avatar {
-  /* make it responsive */
-  max-width: 100%;
+.avatar-container {
+  max-width: 300px;
   width: 100%;
   height: auto;
-  display: block;
-  /* div height to be the same as width*/
-  padding-top: 100%;
-
-  /* make it a circle */
+  overflow: hidden;
   border-radius: 50%;
-
-  /* Centering on image`s center*/
-  background-position-y: center;
-  background-position-x: center;
-  background-repeat: no-repeat;
-
-  /* it makes the clue thing, takes smaller dimension to fill div */
-  background-size: cover;
-
-  /* it is optional, for making this div centered in parent*/
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("../../public/corgi.jpg");
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
 }
 
-.Profile-name {
+.avatar-image {
+  width: 100%; 
+  height: auto; /* keeps the image aspect ratio */
+}
+
+.avatar-name {
+  box-sizing: border-box;
+  margin: 20px;
   font-size: 40px;
-  font-weight: 300;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .Profile-line {
-  border-color: var(--grey);
+  border-color: gray;
+  margin: 0 10%;
 }
 
-.Profile-subContainer {
-  flex-grow: 1;
-  flex-basis: 0;
-}
-
-.Profile-subContainer + .Profile-subContainer {
-  margin-left: var(--m);
-}
-
-.Profile-subTitle {
-  font-weight: 300;
-  font-size: 24px;
-  margin: var(--m) var(--s);
+.info-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 0 10%;
 }
