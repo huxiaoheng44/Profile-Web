@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+.post-button {
+    color:blue;
+    border: bule 4px solid;
+    transition: color 0.1s;
+}
+
+.post-button:hover {
+    color: white;
+    background-color: blue;
+}

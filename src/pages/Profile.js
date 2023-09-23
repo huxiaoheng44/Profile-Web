@@ -1,34 +1,77 @@
 import React from "react";
-import "./Profile.css"
+import GridLayout, {WidthProvider} from 'react-grid-layout';  // <-- Import GridLayout
+import "./Profile.css";
 import InfoCard from "../components/InfoCard";
-
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
 const Profile = () => {
+  
+  const DecoratedGridLayout = WidthProvider(GridLayout);
+
+  const gridWidth = 3;
+
+  const personalInfo = [
+    { field: 'E-mail', value: 'huxiaoheng33@gmail.com' },
+    { field: 'Telephone', value: '+49 1623384004' },
+    { field: 'Residence', value: 'Munich' },
+    { field: 'Major', value: 'Informatics' },
+    { field: 'School', value: 'Technical University of Munich' },
+    { field: 'Hobby', value: 'Basketball & Ping-Pong' }
+  ];
+
+  // const cardLayout = [
+  //   {i:'card1', x:0, y:0, w:1, h:1},
+  //   {i:'card2', x:1, y:0, w:1, h:1},
+  //   {i:'card3', x:2, y:0, w:1, h:1},
+  //   {i:'card4', x:0, y:1, w:1, h:1},
+  //   {i:'card5', x:1, y:1, w:1, h:1},
+  //   {i:'card6', x:2, y:1, w:1, h:1},
+  // ];
+
+  const generatedLayout = generateSequentialLayout(personalInfo, gridWidth);
   return (
     <div>
-      {/* avatar and name part */}
-      <div className="profile-avatar">
-        <div className="avatar-container">
-          <img className="avatar-image" src={process.env.PUBLIC_URL + '/avatar.jpg'} alt="Avatar"/>
+        {/* avatar and name part */}
+        <div className="profile-avatar">
+            <div className="avatar-container">
+                <img className="avatar-image" src={process.env.PUBLIC_URL + '/avatar.jpg'} alt="Avatar"/>
+            </div>
+            <div className="avatar-name">
+                Xiaoheng Hu
+            </div>
         </div>
-        <div className="avatar-name">
-          Xiaoheng Hu
-        </div>
-      </div>
 
-      <hr className="Profile-line" />
+        <hr className="Profile-line" />
 
-      {/* info part */}
-      <div className="info-container">
-        <InfoCard field="E-mail" value="huxiaoheng33@gmail.com"/>
-        <InfoCard field="Telephone" value="+49 1623384004"/>
-        <InfoCard field="Residence" value="Munich"/>
-        <InfoCard field="Major" value="Informatics"/>
-        <InfoCard field="School" value="Technical University of Munich"/>
-        <InfoCard field="Hobby" value="Basketball/Ping-Pong"/>
-      </div>
+        {/* info part */}
+        <DecoratedGridLayout 
+        className="info-container" 
+        layout={generatedLayout} 
+        cols={3} 
+        rowHeight={110}>
+            {personalInfo.map((item, index) => (
+                <div className="InfoCard-container" key={generatedLayout[index].i} >
+                    <InfoCard  field={item.field} value={item.value} />
+                </div>
+
+            ))}
+        </DecoratedGridLayout>
     </div>
   );
 };
-    
+
+function generateSequentialLayout(items, gridWidth) {
+  return items.map((item, index) => {
+    return {
+      x: index % gridWidth,
+      y: Math.floor(index / gridWidth),
+      w: 1,
+      h: 1,
+      i: index.toString(),
+      resizable: false,
+    };
+  });
+}
 
 export default Profile;
+

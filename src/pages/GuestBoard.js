@@ -1,9 +1,10 @@
 import React from "react";
+import NewMessageInput from "../components/NewMessageInput";
 
 const GuestBoard = () => {
     return (
-        <div>
-            <h1>Welcome to GuestBoard</h1>
+        <div className="guestBoard-container">
+            <NewMessageInput />
         </div>
     );
 }

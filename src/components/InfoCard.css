@@ -14,10 +14,13 @@
 .info-card-key{
     font-size: 20px;
     font-weight: bold;
-    white-space: nowrap;
 }
 
 .info-card-value{
+    margin-top: 5px;
+    width: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: bold;
+    word-wrap: break-word;
 }

@@ -39,8 +39,12 @@
 }
 
 .info-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  padding: 0 10%;
+  margin: 20px 10%;
+
+}
+
+.InfoCard-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
 }
