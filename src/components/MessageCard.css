@@ -1,0 +1,39 @@
+.messageCard-container {
+    border: 2px solid #4169E1; 
+    border-radius: 15px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+}
+
+.message-container {
+    padding: 15px; 
+}
+
+
+.author-info-container {
+    display: inline;
+    padding: 20px;
+}
+
+.author-name {
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #4169E1; 
+    margin-bottom: 5px; 
+}
+
+.release-date {
+    font-size: 12px;
+    color: gray;
+    margin: 0 15px;
+}
+
+.message {
+    padding: 20px;
+    font-size: 25px; 
+    color: #000000;
+}
+
+.comment-container {
+    border-top: 2px solid #4169E1;
+}

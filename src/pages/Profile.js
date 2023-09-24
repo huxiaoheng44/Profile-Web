@@ -19,14 +19,6 @@ const Profile = () => {
     { field: 'Hobby', value: 'Basketball & Ping-Pong' }
   ];
 
-  // const cardLayout = [
-  //   {i:'card1', x:0, y:0, w:1, h:1},
-  //   {i:'card2', x:1, y:0, w:1, h:1},
-  //   {i:'card3', x:2, y:0, w:1, h:1},
-  //   {i:'card4', x:0, y:1, w:1, h:1},
-  //   {i:'card5', x:1, y:1, w:1, h:1},
-  //   {i:'card6', x:2, y:1, w:1, h:1},
-  // ];
 
   const generatedLayout = generateSequentialLayout(personalInfo, gridWidth);
   return (
