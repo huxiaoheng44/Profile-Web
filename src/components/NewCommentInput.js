@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./NewCommentInput.css"
 
 const NewCommentInput = () => {
-    const [inputMessage,setMessageValue] = useState("");
+    const [inputComment,setCommentValue] = useState("");
 
     const [isAnonymous,setAnonymous] = useState(false);
     
     // called whenever the user types in the new post input box
     const handleChange = (event) => {
-        setMessageValue(event.target.value);
+        setCommentValue(event.target.value);
     };
 
     const handleAnonymousChange = (event) => {
@@ -22,6 +22,7 @@ const NewCommentInput = () => {
                     className="input comment-input"
                     type="text" 
                     onChange={handleChange}
+                    value={inputComment}
                     placeholder="Enter your comment here..." 
                 />
             </div>
@@ -32,7 +33,7 @@ const NewCommentInput = () => {
                     <input 
                         className="input author-input"
                         type="text" 
-                        placeholder="Author's name"
+                        placeholder="Name"
                     />
                 }
 

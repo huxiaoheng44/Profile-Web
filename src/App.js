@@ -13,6 +13,7 @@ function App() {
         <Routes>
             <Route path="/guestboard" exact element={<GuestBoard />} />
             <Route path="/profile" exact element={<Profile />} />
+            <Route path="/" exact element={<GuestBoard />} />
         </Routes>
       </Router>
     </>
