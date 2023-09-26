@@ -11,6 +11,9 @@ const NavBar = () => {
         Xiaoheng
       </div>
       <div className="Navbar-linkContainer">
+        <Link to="/devLog" className="Navbar-link">
+          Dev Log
+        </Link>
         <Link to="/guestboard" className="Navbar-link">
           GuestBoard
         </Link>

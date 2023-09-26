@@ -1,7 +1,11 @@
-.messageBoard {
-    margin: 10 20px;
+.messageBoard-container {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.messageCard-container {
-    box-sizing: border-box;
+.gridlayout {
+    width: 90%;
 }
+

@@ -2,7 +2,8 @@
 .commentInput-container {
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    height: auto; 
+    margin-bottom: 10px;
   }
   
 

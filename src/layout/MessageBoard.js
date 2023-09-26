@@ -19,7 +19,7 @@ const MessageBoard = (props) => {
     //     { _id:4, author: "xiao", message:"What a lovely day", date:date},
     // ];
 
-    const cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 };
+    const cols = { lg: 12, md: 9, sm: 6, xs: 4, xxs: 2 };
 
     const genLayouts = {
         lg: generatedLayout(messages, cols.lg),
@@ -29,46 +29,76 @@ const MessageBoard = (props) => {
         xxs: generatedLayout(messages, cols.xxs),
     };
 
+    const margin = {
+        lg: [30, 30],
+        md: [20, 20],
+        sm: [15, 15],
+        xs: [10, 10],
+        xxs: [10, 10],
+    }
 
     // console.log(genLayouts);
 
+    console.log(messages);
     return (
-        <ResponsiveGridLayout
-        className="messageBoard"
-        layouts={genLayouts}
-        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={cols}
-        rowHeight={100}>
-            {/* {defaultMessage.map((message,index) => (
-                <div key={index} className="messageCard-container">
-                    <MessageCard _id={message._id} message={message.message} author={message.author} date={message.date}/>
-                </div>
-            ))} */}
-            {
-                messages.length > 0 ? (
-                    messages.map((message, index) => (
-                    <div key={index} className="messageCard-container">
-                        <MessageCard _id={message._id} message={message.content} 
-                        author={message.author} date={message.date} />
-                    </div>
-                    ))
-                ) : (
-                    <p>No message yet, please type your first message here!</p>
-                )
-            }
-        </ResponsiveGridLayout >
+        <div className="messageBoard-container">
+            <ResponsiveGridLayout
+            className="gridlayout"
+            layouts={genLayouts}
+            breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+            cols={cols}
+            margin={margin}
+            rowHeight={100}>
+                {
+                    messages.length > 0 ? (
+                        messages.map((message, index) => (  
+                        <div key={index} className="messageCard-container">
+                            <MessageCard 
+                            messageId={message.messageId} 
+                            content={message.content} 
+                            author={message.author} 
+                            date={message.date} />
+                        </div>
+                        ))
+                    ) : (
+                        <p>No message yet, please type your first message here!</p>
+                    )
+                }
+            </ResponsiveGridLayout >
+        </div>
     );
 };
 
 function generatedLayout(messages, col_num){
+    let setH = 4;
+    let setW = 4;
+
+    if(col_num === 12) {
+        setH = 4;
+        setW = 4;
+    } else if(col_num === 9) {
+        setH = 3;
+        setW = 4;
+    } else if(col_num === 6) {
+        setH = 3;
+        setW = 4;
+    } else if(col_num === 4) {
+        setH = 4;
+        setW = 4;
+    } else if(col_num === 3) {
+        setH = 3;
+        setW = 4;
+    }
+
     return messages.map((message,index) => {
         return {
-            x: (index * 4) % col_num,
-            y: Math.floor((index * 4) / col_num),
-            w: 4,
-            h: 4,
+            x: (index * setH) % col_num,
+            y: Math.floor((index * setW) / col_num),
+            w: setH,
+            h: setW,
             i: index.toString(),
-            resizable: true,
+            resizable: {x: false, y: true}, 
+            resizeHandles: ['s'],
         }
     })
 }

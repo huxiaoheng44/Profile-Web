@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./NewMessageInput.css";
+import baseURL from "../config";
 
 
 /**
@@ -15,7 +16,7 @@ const NewMessageInput = (props) => {
 
     const [inputMessage,setMessageValue] = useState("");
     const [inputAuthor,setAuthor] = useState("");
-    const [isAnonymous,setAnonymous] = useState(false);
+    const [isAnonymous,setAnonymous] = useState(true);
     
     // called whenever the user types in the new post input box
     const handleMessageChange = (event) => {
@@ -44,7 +45,7 @@ const NewMessageInput = (props) => {
         const currentDate = new Date();
 
         const messageData = {
-            _id: 100,
+            messageId: props.messageLength,
             content: inputMessage,
             author: isAnonymous || inputAuthor === "" ? "Anonymous" : inputAuthor,
             date: currentDate,
@@ -54,7 +55,7 @@ const NewMessageInput = (props) => {
         const messageDataJSON = JSON.stringify(messageData);
         //sent post request
         // console.log(messageData);
-        fetch("http://localhost:3000/api/message", {
+        fetch(`${baseURL}/api/message`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -101,6 +102,7 @@ const NewMessageInput = (props) => {
             <div className="checkbox-container">
                 <input 
                     type="checkbox" 
+                    checked={isAnonymous}
                     onChange={handleAnonymousChange}
                 />
                 <label className="label-text">Anonymous</label>

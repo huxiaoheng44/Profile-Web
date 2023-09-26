@@ -1,25 +1,24 @@
-import React,{useState, useEffect} from "react";
+import React,{ useState, useEffect} from "react";
 import NewMessageInput from "../components/NewMessageInput";
 import MessageBoard from "../layout/MessageBoard";
 
 import "./GuestBoard.css"
-
+import baseURL from "../config";
 
 const GuestBoard = () => {
 
     const [messages,setMessages] = useState([]);
+    const [messageLength, setMessageLength] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/messages",
+        fetch(`${baseURL}/api/messages`,
         {
             method: "GET",
         })
         .then((res) => res.json())
         .then((data) => {
-            if (!Array.isArray(data)) {
-                data = [data]; 
-              }
-            setMessages(data);
+            setMessages(data.reverse());
+            setMessageLength(data.length);
         });
     },[]);
 
@@ -27,11 +26,12 @@ const GuestBoard = () => {
     // this will be called after submit a new message
     const addNewMessage = (newMessage) => {
         setMessages([newMessage,...messages]);
+        setMessageLength(messageLength + 1);
     }
 
     return (
         <div className="guestBoard-container">
-            <NewMessageInput addNewMessage={addNewMessage} />
+            <NewMessageInput addNewMessage={addNewMessage} messageLength={messageLength} />
             <MessageBoard messages={messages} />
         </div>
     );

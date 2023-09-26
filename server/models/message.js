@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
-    id : String,
+    messageId : String,
     author: String,
     content: String,
     date: Date,
