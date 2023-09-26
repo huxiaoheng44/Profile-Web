@@ -33,7 +33,7 @@ const DevLog = () => {
             </div>
             
             <div className="log-day">
-                <h3>Mon Sep 25, 2023</h3>
+                <h3>Sat Sep 23, 2023</h3>
                 <h4>Add message card display page</h4>
                 <p>- Designed and implemented the message card layout.</p>
                 <p>- Ensured responsive design for various screen sizes.</p>
@@ -41,7 +41,7 @@ const DevLog = () => {
             </div>
 
             <div className="log-day">
-                <h3>Sat Sep 23, 2023</h3>
+                <h3>Wed Sep 20, 2023</h3>
                 <h4>Add draggable personal info card</h4>
                 <p>- Implemented draggable functionality for personal info card.</p>
                 <p>- Added smooth transition and snap effect to the draggable card.</p>
@@ -49,7 +49,7 @@ const DevLog = () => {
             </div>
 
             <div className="log-day">
-                <h3>Sat Sep 23, 2023</h3>
+                <h3>Sun Sep 17, 2023</h3>
                 <h4>Add avatar and personal info Profile page</h4>
                 <p>- Created a profile page to display user's avatar and personal information.</p>
                 <p>- Designed a clean and intuitive user interface for the profile page.</p>
@@ -57,7 +57,7 @@ const DevLog = () => {
             </div>
 
             <div className="log-day">
-                <h3>Sat Sep 23, 2023</h3>
+                <h3>Fri Sep 15, 2023</h3>
                 <h4>Build skeleton of the web app</h4>
                 <p>- Initialized the project structure and organized the files.</p>
                 <p>- Set up essential dependencies and tools for development.</p>
