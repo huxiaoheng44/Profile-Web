@@ -1,2 +1,2 @@
-const baseURL = 'http://localhost:3000';
+const baseURL = 'http://8.211.1.174';
 export default baseURL;
