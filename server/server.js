@@ -5,7 +5,8 @@ const cors = require("cors");
 const api = require("./api.js")
 
 
-const mongoConnectionURL = "mongodb+srv://huxiaoheng:hxh19981225@xiaoheng.nymd030.mongodb.net/?retryWrites=true&w=majority";
+// const mongoConnectionURL = "mongodb+srv://huxiaoheng:hxh19981225@xiaoheng.nymd030.mongodb.net/?retryWrites=true&w=majority";
+const mongoConnectionURL = "mongodb://localhost:27017";
 
 const databaseName = "xiaoheng-web";
 const options = { useNewUrlParser: true, useUnifiedTopology: true, dbName: databaseName}
