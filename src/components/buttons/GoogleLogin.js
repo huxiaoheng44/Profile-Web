@@ -1,6 +1,6 @@
 import React from "react";
 import baseURL from "../../config";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useUser } from "../../UserContext";
 
 const GoogleLoginButton = (props) => {
@@ -24,6 +24,11 @@ const GoogleLoginButton = (props) => {
           setUserName(data.name);
           setUserAvatar(data.picture);
           setUserId(data.googleid);
+
+          // use session to store user info
+          sessionStorage.setItem("userName", data.name);
+          sessionStorage.setItem("userAvatar", data.picture);
+          sessionStorage.setItem("userId", data.googleid);
         });
     };
 
@@ -31,6 +36,20 @@ const GoogleLoginButton = (props) => {
       window.handleLogin = undefined;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // make sure the google login button is always showed
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {};
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (

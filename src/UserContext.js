@@ -9,6 +9,13 @@ export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
 
+  const [shouldBlink, setShouldBlink] = useState(false);
+
+  const triggerBlink = () => {
+    setShouldBlink(true);
+    setTimeout(() => setShouldBlink(false), 1000); // Reset after a short delay
+  };
+
   const value = {
     userId,
     setUserId,
@@ -16,6 +23,8 @@ export const UserProvider = ({ children }) => {
     setUserName,
     userAvatar,
     setUserAvatar,
+    shouldBlink,
+    triggerBlink,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
