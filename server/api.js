@@ -1,4 +1,4 @@
-
+//api.js
 const express = require("express");
 
 const router = express.Router();
@@ -6,6 +6,11 @@ const router = express.Router();
 const Message = require("./models/message");
 
 const Comment = require("./models/comment");
+
+const User = require("./models/user");
+
+// import authentication library
+const auth = require("./auth");
 
 // API about message
 router.get("/messages",(req,res) => {
@@ -33,7 +38,7 @@ router.post("/message",(req,res) => {
 // find comments with the same parentId
 router.get("/comments/:parentId",(req,res) => {
     Comment.find({parentId: req.params.parentId}).then((comments) => {
-        console.log(comments);
+        //console.log(comments);
         res.send(comments);
     });
 });
@@ -52,6 +57,8 @@ router.post("/comment",(req,res) => {
         res.send(comment);
     });
 });
+
+router.post("/login",auth.login);
 
 
 router.get("/test",(req,res) => {

@@ -18,7 +18,7 @@ const MessageCard = forwardRef((props, ref) => {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log("I want to get comment LIST___________",data)
+            // console.log("I want to get comment LIST___________",data)
             setComments(data);
             setCommentLength(data.length);
         });
@@ -39,7 +39,7 @@ const MessageCard = forwardRef((props, ref) => {
     }
 
 
-    console.log("Lets see what is inside the COMMENTS__________", comments);
+    // console.log("Lets see what is inside the COMMENTS__________", comments);
     return(
         <div ref={ref} className="messagecard-and-comment">
             <div className="message-container">
