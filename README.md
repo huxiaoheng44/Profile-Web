@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# XiaoHeng Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The XiaoHeng website is a platform that features three main components: a Development Log, a Guest Board for message posting, and a Profile section. It is designed to allow users to engage with the community through signed or anonymous messages and comments upon logging in.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Components
 
-### `npm start`
+### Dev Log
+The Development Log provides a chronological account of updates and progression in the development of the website. It serves as a transparent history of features and improvements made over time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![alt text](ReadmeImages/image-1.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Guest Board
+The Guest Board is a space where registered users can post messages and comments. This can be done either anonymously or with a username, fostering both open and private conversations.
 
-### `npm test`
+![alt text](ReadmeImages/image.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Profile
+The Profile section offers insights into the creator of the website. It contains details such as professional background, interests, and any other personal information the creator wishes to share.
 
-### `npm run build`
+![alt text](ReadmeImages/image-2.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Architecture
+- The website is structured to facilitate easy navigation between the Dev Log, Guest Board, and Profile.
+- Secure login functionality ensures user identity protection and allows for anonymous interactions on the Guest Board.
+- A responsive design ensures the website is accessible across various devices and screen sizes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
+Users can interact with the website by posting messages on the Guest Board after logging in, tracking development updates in the Dev Log, and learning more about the developer in the Profile section.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Plan
+A new feature for the XiaoHeng website—a dedicated page where users can post their photos. This interactive space will not only allow for photo sharing but will also provide the freedom to place these images anywhere on the page, giving users a creative way to personalize their display and engage with the community."
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For more information, please refer to the navigation menu on the website or contact the developer directly.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2024 XiaoHeng. All rights reserved.
