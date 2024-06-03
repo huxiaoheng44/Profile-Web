@@ -1,0 +1,11 @@
+Model Information:
+* title:	Overgrown Rover - One punch man
+* source:	https://sketchfab.com/3d-models/overgrown-rover-one-punch-man-5f49cb794e3f45479a797885f6c2c40e
+* author:	OlegPopka (https://sketchfab.com/OlegPopka)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Overgrown Rover - One punch man" (https://sketchfab.com/3d-models/overgrown-rover-one-punch-man-5f49cb794e3f45479a797885f6c2c40e) by OlegPopka (https://sketchfab.com/OlegPopka) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

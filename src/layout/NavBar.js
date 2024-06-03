@@ -49,6 +49,9 @@ const NavBar = () => {
           <Link to="/guestboard" className="Navbar-link">
             GuestBoard
           </Link>
+          <Link to="/photoPost" className="Navbar-link">
+            PhotoPost
+          </Link>
           <Link to="/profile" className="Navbar-link">
             Profile
           </Link>

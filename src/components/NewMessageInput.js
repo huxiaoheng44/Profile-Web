@@ -114,7 +114,7 @@ const NewMessageInput = (props) => {
         </button>
       ) : (
         <button
-          class="h-10 w-1/10 box-border text-white bg-gray-400 border-0 rounded-md transition-colors duration-100 text-base font-bold px-4"
+          className="h-10 w-1/10 box-border text-white bg-gray-400 border-0 rounded-md transition-colors duration-100 text-base font-bold px-4"
           onClick={triggerBlink}
         >
           Login to Post
