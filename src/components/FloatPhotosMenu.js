@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import {
   FileImageTwoTone,
   MinusCircleOutlined,
-  PlusOutlined,
+  DeleteTwoTone,
 } from "@ant-design/icons";
 
 const FloatPhotoMenu = () => {
@@ -17,7 +17,11 @@ const FloatPhotoMenu = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImages([...images, URL.createObjectURL(file)]);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImages([...images, reader.result]);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -25,14 +29,21 @@ const FloatPhotoMenu = () => {
     fileInputRef.current.click();
   };
 
+  const handleDragStart = (event, img) => {
+    console.log(img);
+    event.dataTransfer.setData("imageData", img);
+  };
+
+  function handleDeleteImage() {}
+
   return (
-    <div className="fixed bottom-32 left-32">
+    <>
       <div
         className={`transition-all duration-300 ${
           isMenuOpen
-            ? "w-48 h-96 p-4 rounded-lg shadow-2xl"
+            ? "w-56 h-4/6 p-4 rounded-lg shadow-2xl"
             : "w-20 h-20 rounded-full shadow-2xl"
-        } bg-gray-100 flex items-center justify-center relative`}
+        } bg-gray-100 flex items-center justify-center fixed bottom-32 left-32`}
       >
         {!isMenuOpen ? (
           <FileImageTwoTone
@@ -40,18 +51,12 @@ const FloatPhotoMenu = () => {
             style={{ fontSize: "40px", color: "white" }}
           />
         ) : (
-          <div className="w-full h-full relative">
+          <div className="w-full h-full">
             <MinusCircleOutlined
               className="absolute top-2 right-2 text-xl"
               onClick={handleMenuOpen}
             />
-            <div className="mt-10">
-              <button
-                className="border-4 rounded-lg border-blue-300 p-2 absolute bottom-2"
-                onClick={handleUploadButtonClick}
-              >
-                Upload Image
-              </button>
+            <div className="mt-4 overflow-auto h-full pb-16">
               <input
                 type="file"
                 onChange={handleImageUpload}
@@ -60,22 +65,36 @@ const FloatPhotoMenu = () => {
                 accept="image/*"
               />
 
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="flex flex-col h-full overflow-auto">
                 {images.map((img, index) => (
-                  <div key={index} className="w-full h-20">
+                  <div key={index} className="w-full relative">
+                    <DeleteTwoTone
+                      className="absolute top-3 right-1 text-lg"
+                      onClick={handleDeleteImage}
+                    />
                     <img
                       src={img}
                       alt={`img-${index}`}
-                      className="w-full h-full object-cover rounded"
+                      className="w-full h-full object-cover rounded py-2"
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, img)}
                     />
                   </div>
                 ))}
+              </div>
+              <div className="absolute bottom-2 left-0  w-full flex justify-center">
+                <button
+                  className="rounded-lg bg-blue-300 p-2 text-white"
+                  onClick={handleUploadButtonClick}
+                >
+                  Upload Image
+                </button>
               </div>
             </div>
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

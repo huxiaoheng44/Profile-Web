@@ -15,7 +15,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/devLog" exact element={<DevLog />} />
-            <Route path="/guestboard" exact element={<GuestBoard />} />
+            <Route path="/guestBoard" exact element={<GuestBoard />} />
             <Route path="/profile" exact element={<Profile />} />
             <Route path="/photoPost" exact element={<PhotoPost />} />
             <Route path="/" exact element={<GuestBoard />} />

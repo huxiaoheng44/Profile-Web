@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import interact from "interactjs";
 import FloatPhotoMenu from "../components/FloatPhotosMenu";
 
 const PhotoPost = () => {
+  const [images, setImages] = useState([]);
+
   useEffect(() => {
     interact(".resizable-rotate-draggable")
       .draggable({
@@ -59,14 +61,34 @@ const PhotoPost = () => {
       });
   }, []);
 
+  const handleDrop = (event) => {
+    console.log("drop");
+    event.preventDefault();
+    const imgData = event.dataTransfer.getData("imageData");
+    if (imgData) {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      setImages([...images, { src: imgData, x, y }]);
+    }
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className="w-full h-full flex flex-col border-blue-200 border-8">
+    <div
+      className="w-full h-screen flex flex-col border-8"
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+    >
       <FloatPhotoMenu />
       <div className="w-full h-10">
         <h1>Photo Wall</h1>
       </div>
-      <div className="w-full block">
-        <div
+      <div className="w-full block relative">
+        {/* <div
           className="resizable-rotate-draggable w-10 h-10 w-min-10 h-min-10 bg-black"
           style={{ touchAction: "none" }}
         >
@@ -75,7 +97,27 @@ const PhotoPost = () => {
             src={process.env.PUBLIC_URL + "/avatar.jpg"}
             alt="Avatar"
           />
-        </div>
+        </div> */}
+        {images.map((image, index) => {
+          return (
+            <div
+              key={index}
+              className="resizable-rotate-draggable absolute flex-1"
+              style={{
+                left: `${image.x}px`,
+                top: `${image.y - 30}px`,
+                touchAction: "none",
+              }}
+            >
+              <img
+                src={image.src}
+                alt={`img-${index}`}
+                className="avatar-image"
+                style={{ width: "100px" }}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
